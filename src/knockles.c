@@ -74,7 +74,7 @@ static uint16_t hmac_cmp(event_t *e){
             win >>= 8;
         }
     }
-    if(strncmp((char *)enc, (char *)rcv, sizeof(rcv))) return 1;
+    if(memcmp((char *)enc, (char *)rcv, sizeof(rcv))) return 1;
     
     uint16_t port = (((uint16_t)(enc[9]))<<8)|enc[8];
     
