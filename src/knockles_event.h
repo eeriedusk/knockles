@@ -1,5 +1,5 @@
-#ifndef __DIRTYPIPE_DETECTION_EVENT_H__
-#define __DIRTYPIPE_DETECTION_EVENT_H__
+#ifndef __KNOCKLES_EVENT_H__
+#define __KNOCKLES_EVENT_H__
 
 /****************************************************/
 /*!
