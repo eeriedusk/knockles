@@ -1,7 +1,10 @@
+> **Warning**
+> This git repository was meant to be a small (and fun) demonstration of what can be done with eBPF. It was clearly over-engineered as it was not developped nor optimized for any kind of use.
+
 # Knockles - eBPF Port Knocking Tool 🚪🐝
 
-Knockles 🦔, is a port knocking tool based on [eBPF](https://ebpf.io/what-is-ebpf) 🐝.
-It allows you to remotely open a TCP connection while being completely invisible to port scanners.
+Knockles, is a port knocking tool based on [eBPF](https://ebpf.io/what-is-ebpf) 🐝.
+It allows to remotely open a TCP connection while being completely invisible to port scanners.
 
 - A single SYN request is sent on an opened || closed port 📨 📫
 - It carries an OTP for authentication so you can be the only one to open a port 🔐 
@@ -12,13 +15,17 @@ It allows you to remotely open a TCP connection while being completely invisible
 
 > Modify the following macros/variables
 
-**./knockles/src/knockles.bpf.c**
-- *l.6*:`PORT`: Port monitored for knocks [default: 80]
+```
+./knockles/src/knockles.bpf.c
+```
+- `PORT`: Port monitored for knocks *[default: `80`]*
 
-**./knockles/src/knockles.c**
-- *l.16*:`HMAC_DURATION`: Time between two different OTP (in seconds) [default: 30]
-- *l.17*:`LISTENING_DURATION`: Timeout of the opened port if no connection occurs (in seconds) [default: 30]
-- *l.18*:`SECRET`: HMAC secret key **⚠️ Don't forget to modify this variable ⚠️** [default: MY_SECRET_KEY]
+```
+./knockles/src/knockles.c
+```
+- `HMAC_DURATION`: Time range between two different OTP (in seconds) *[default: `30`]*
+- `LISTENING_DURATION`: Timeout of the opened port if no connection occurs (in seconds) *[default: `30`]*
+- `SECRET`: HMAC secret key *[default: `MY_SECRET_KEY`]*
 
 ## Server compilation
 
